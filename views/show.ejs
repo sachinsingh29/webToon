@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webtoon</title>
+  </head>
+  <body>
+    <h2></h2>
+
+    <div class="card">
+      <strong>ID:<%= webtoonsData._id %></strong><br />
+      <strong>Title: <%= webtoonsData.title %></strong><br />
+      Description: <%= webtoonsData.description %><br />
+      Characters: <%= webtoonsData.characters.join(', ') %><br /><br />
+    </div>
+  </body>
+</html>

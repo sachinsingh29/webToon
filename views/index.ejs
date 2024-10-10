@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webtoons List</title>
+  </head>
+  <body>
+    <h1>Webtoon Listings</h1>
+
+    <form action="/webtoons/:id" method="get">
+      <input
+        type="text"
+        name="id"
+        id="id"
+        placeholder=" Search by ID "
+        required
+      />
+      <button
+        type="submit"
+        style="color: black; height: 20px; border-radius: 15px; cursor: pointer"
+      >
+        Search
+      </button>
+    </form>
+    <div style="display: flex; justify-content: flex-end; text-align: center">
+      <a href="/webtoons/new"
+        ><button
+          style="
+            color: black;
+            height: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+          "
+        >
+          Add New Webtoon
+        </button></a
+      >
+    </div>
+
+    <hr />
+    <% webtoons.forEach(webtoon => { %>
+    <div class="card">
+      <br />
+      <strong>ID:<%= webtoon._id %></strong><br />
+      <strong>Title: <%= webtoon.title %></strong><br />
+      Description: <%= webtoon.description %><br />
+      Characters: <%= webtoon.characters.join(', ') %>&nbsp;&nbsp;&nbsp;
+      <form
+        action="/webtoons/<%= webtoon._id %>?_method=DELETE"
+        method="POST"
+        style="display: inline"
+      >
+        <button
+          type="submit"
+          style="color: red; height: 20px; border-radius: 15px; cursor: pointer"
+        >
+          Delete
+        </button>
+      </form>
+    </div>
+    <% }); %>
+    <hr />
+  </body>
+</html>
